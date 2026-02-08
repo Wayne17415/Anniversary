@@ -1,0 +1,216 @@
+:root {
+    --bg-main: #0f0a1a;          /* deep black-purple */
+    --card-bg: #1a132d;         /* dark purple */
+    --accent-purple: #7b5cff;   /* soft neon purple */
+    --accent-pink: #ff6fae;     /* romantic pink */
+    --text-main: #f3ecff;       /* light lavender */
+    --muted: #b8a9e6;
+}
+
+/* RESET */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #1b1033, var(--bg-main));
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* CARD */
+.card-container {
+    width: 350px;
+    height: 520px;
+    position: relative;
+}
+
+/* PAGES */
+.page {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        160deg,
+        #20123a,
+        var(--card-bg)
+    );
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    padding: 32px;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(25px) scale(0.98);
+    transition: all 0.6s ease;
+    pointer-events: none;
+}
+
+.page.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+    z-index: 10;
+}
+
+.content {
+    text-align: center;
+    color: var(--text-main);
+}
+
+/* TITLE */
+.elegant-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.3rem;
+    background: linear-gradient(
+        90deg,
+        var(--accent-purple),
+        var(--accent-pink)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 40px;
+}
+
+/* BORDER */
+.gold-border {
+    position: absolute;
+    inset: 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(123, 92, 255, 0.4);
+    pointer-events: none;
+}
+
+/* TEXT */
+p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.step-count {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+}
+
+/* HEART PLACEHOLDER */
+.photo-placeholder {
+    font-size: 3.2rem;
+    margin: 20px 0;
+    filter: drop-shadow(0 0 10px rgba(255,111,174,0.6));
+}
+
+/* BUTTONS */
+button {
+    margin-top: 28px;
+    padding: 12px 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--accent-purple),
+        var(--accent-pink)
+    );
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(123,92,255,0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(255,111,174,0.6);
+}
+
+/* COUPON */
+.coupon {
+    margin-top: 22px;
+    padding: 22px;
+    border-radius: 14px;
+    background: linear-gradient(
+        160deg,
+        rgba(255,111,174,0.15),
+        rgba(123,92,255,0.15)
+    );
+    border: 1px dashed rgba(255,255,255,0.3);
+}
+
+.coupon h3 {
+    margin: 0;
+    color: var(--accent-pink);
+}
+
+.coupon small {
+    display: block;
+    margin-top: 10px;
+    color: rgba(255,255,255,0.5);
+}
+
+/* HEARTS */
+#heart-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99;
+}
+
+.heart {
+    position: absolute;
+    animation: float 4s linear forwards;
+    filter: drop-shadow(0 0 6px rgba(255,111,174,0.8));
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+.home-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.home-btn:hover {
+    color: var(--accent-pink);
+    transform: scale(1.05);
+}
+/* POSTCARD STACK EFFECT */
+.card-stack {
+    position: relative;
+    width: 360px;
+    height: 540px;
+}
+
+/* BACK POSTCARD */
+.postcard-back {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        160deg,
+        #0a0614,
+        #1a0f2e
+    );
+    border-radius: 20px;
+    transform: rotate(-4deg) translateY(12px);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.7),
+        inset 0 0 0 1px rgba(255, 111, 174, 0.15);
+    z-index: 1;
+}
+
+/* MAIN CARD ABOVE */
+.card-container {
+    position: relative;
+    z-index: 2;
+}
+

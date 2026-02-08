@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 4 Months</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card-stack">
+        <div class="postcard-back"></div>
+    
+        <div class="card-container">    
+
+    <!-- PAGE 1 -->
+    <div class="page active" id="page-1">
+        <div class="content">
+            <div class="gold-border"></div>
+            <h1 class="elegant-text">4 Months of Us</h1>
+            <p>A small token for a beautiful journey. I know i always annoy you and 
+                vex you but the love I have for you is beyond comparison. 
+                May Almighty Allah always keep us together. <br>
+                <h3>فِي الدُّنْيَا وَالْآخِرَةِ</h3>
+            </p>
+            <button onclick="nextPage(2)">Open Card</button>
+        </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page-2">
+        <div class="content">
+            <div class="home-btn" onclick="goHome()">🏠 Home</div>
+            <span class="step-count">02 / 04</span>
+            <h2>Blessed</h2>
+            <p>4 months, 123 days, 2952 hours of laughter, growth, and loving you more with each day that passes.</p>
+            <button onclick="nextPage(3)">Continue</button>
+        </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page" id="page-3">
+        <div class="content">
+            <div class="home-btn" onclick="goHome()">🏠 Home</div>
+            <span class="step-count">03 / 04</span>
+            <h2>My Promise To You</h2>
+            <p class="message-body">
+                In these four months, you never let me feel alone or unloved. You support me in everything, you care for me, 
+                and you love me like my mom (Meri Dusri Mumma🥺). 
+                And that’s all I ever needed. I’m so grateful to have you in my life. <br>
+                Thank you for everything Jaanam💜.
+            </p>
+            <button onclick="nextPage(4)">See Your Gift</button>
+        </div>
+    </div>
+
+    <!-- PAGE 4 (FINAL) -->
+    <div class="page" id="page-4">
+        <div class="content">
+            <div class="home-btn" onclick="goHome()">🏠 Home</div>
+            <span class="step-count">04 / 04</span>
+            <h2>Virtual Coupon For You</h2>
+
+            <div class="coupon">
+                <h3>Redeemable For:</h3>
+                <p>Infinite Romantic Dates & Infinite Hugs and Kisses For My Pookiee❤</p>
+                <small>Valid Forever</small>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="heart-container"></div>
+
+<!-- ✅ JS MUST BE HERE -->
+<script>
+function nextPage(pageNumber) {
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(`page-${pageNumber}`).classList.add('active');
+
+    if (pageNumber === 4) {
+        createHearts();
+    }
+}
+
+function restart() {
+    nextPage(1);
+}
+
+/* ✅ ADD THIS */
+function goHome() {
+    nextPage(1);
+}
+function createHearts() {
+    const container = document.getElementById('heart-container');
+
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerText = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            container.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 4000);
+        }, i * 150);
+    }
+}
+</script>
+</body>
+</html>
