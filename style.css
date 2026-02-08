@@ -213,4 +213,56 @@ button:hover {
     position: relative;
     z-index: 2;
 }
+/* ANNIVERSARY PAGE */
+.anniversary {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.anniv-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    background: linear-gradient(
+        90deg,
+        var(--accent-pink),
+        var(--accent-purple),
+        var(--accent-pink)
+    );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s infinite linear;
+}
+
+.anniv-sub {
+    margin-top: 16px;
+    color: var(--muted);
+}
+
+/* FULL PAGE FLOATING ANIMATION */
+.full-animation span {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: rise 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(100vh) scale(0.6);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    100% {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes shimmer {
+    to { background-position: 200%; }
+}
 
